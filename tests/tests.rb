@@ -4,14 +4,14 @@ require 'test/unit'
 require 'mercadopago'
 require 'logger'
 
-class MercadoPagoTest < Test::Unit::TestCase
+class APITest < Test::Unit::TestCase
 	def setup
-		@mp = MercadoPago.new("CLIENT_ID", "CLIENT_SECRET")
+		@mp = MP::API.new("CLIENT_ID", "CLIENT_SECRET")
 	end
 
 	# Call preference added through button flow
 	def test_long_live_access_token
-		@mp = MercadoPago.new("LONG_LIVE_ACCESS_TOKEN")
+		@mp = MP::API.new("LONG_LIVE_ACCESS_TOKEN")
 
 		assert_equal(@mp.get_access_token(), "LONG_LIVE_ACCESS_TOKEN")
 	end
